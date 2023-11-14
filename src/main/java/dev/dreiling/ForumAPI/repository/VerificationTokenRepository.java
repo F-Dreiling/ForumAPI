@@ -1,6 +1,6 @@
-package com.programming.techie.springredditclone.repository;
+package dev.dreiling.ForumAPI.repository;
 
-import com.programming.techie.springredditclone.model.VerificationToken;
+import dev.dreiling.ForumAPI.model.VerificationToken;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

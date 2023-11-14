@@ -1,8 +1,8 @@
-package com.programming.techie.springredditclone.repository;
+package dev.dreiling.ForumAPI.repository;
 
-import com.programming.techie.springredditclone.model.Post;
-import com.programming.techie.springredditclone.model.Subreddit;
-import com.programming.techie.springredditclone.model.User;
+import dev.dreiling.ForumAPI.model.Post;
+import dev.dreiling.ForumAPI.model.Subreddit;
+import dev.dreiling.ForumAPI.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

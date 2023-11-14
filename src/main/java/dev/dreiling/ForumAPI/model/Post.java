@@ -1,4 +1,4 @@
-package com.programming.techie.springredditclone.model;
+package dev.dreiling.ForumAPI.model;
 
 import jakarta.persistence.*;
 import lombok.*;

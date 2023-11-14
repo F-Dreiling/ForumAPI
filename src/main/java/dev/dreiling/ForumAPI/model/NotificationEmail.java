@@ -1,4 +1,4 @@
-package com.programming.techie.springredditclone.model;
+package dev.dreiling.ForumAPI.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
