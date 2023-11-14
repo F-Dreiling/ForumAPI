@@ -10,7 +10,8 @@
 	</parent>
 	<groupId>dev.dreiling</groupId>
 	<artifactId>ForumAPI</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
+	<packaging>jar</packaging>
 	<name>ForumAPI</name>
 	<description>Simple API for a Reddit Clone</description>
 	<properties>
@@ -60,9 +61,15 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>1.0.0.GA</version>
+		</dependency>
 	</dependencies>
 
 	<build>
+		<finalName>forumapi</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

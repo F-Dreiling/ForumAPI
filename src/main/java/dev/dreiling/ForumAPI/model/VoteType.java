@@ -1,7 +1,5 @@
 package dev.dreiling.ForumAPI.model;
 
-import com.programming.techie.springredditclone.exceptions.SpringRedditException;
-
 import java.util.Arrays;
 
 public enum VoteType {
@@ -13,11 +11,11 @@ public enum VoteType {
     VoteType(int direction) {
     }
 
-    public static VoteType lookup(Integer direction) {
+    public static VoteType lookup(Integer direction) throws Exception {
         return Arrays.stream(VoteType.values())
                 .filter(value -> value.getDirection().equals(direction))
                 .findAny()
-                .orElseThrow(() -> new SpringRedditException("Vote not found"));
+                .orElseThrow(() -> new Exception("Vote not found"));
     }
 
     public Integer getDirection() {
