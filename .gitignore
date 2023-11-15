@@ -30,7 +30,7 @@ build/
 !**/src/test/**/build/
 
 ### ENV Files ###
-src/main/resources/.env
+.env
 
 ### VS Code ###
 .vscode/
