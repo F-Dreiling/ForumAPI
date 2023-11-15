@@ -1,5 +1,6 @@
 package dev.dreiling.ForumAPI.controller;
 
+import dev.dreiling.ForumAPI.dto.LoginRequest;
 import dev.dreiling.ForumAPI.dto.RegisterRequest;
 import dev.dreiling.ForumAPI.service.AuthService;
 import lombok.AllArgsConstructor;
@@ -26,8 +27,15 @@ public class AuthController {
 
     @GetMapping("accountVerification/{token}")
     public ResponseEntity<String> verifyAccount(@PathVariable String token) {
+
         authService.verifyAccount(token);
         return new ResponseEntity<>("Account activated successfully", HttpStatus.OK);
+
+    }
+
+    @PostMapping("/login")
+    public void login(@RequestBody LoginRequest loginRequest) {
+        authService.login(loginRequest);
     }
 
 }
