@@ -24,7 +24,7 @@ public class MailService {
             messageHelper.setFrom("springreddit@email.com");
             messageHelper.setTo(notificationEmail.getRecipient());
             messageHelper.setSubject(notificationEmail.getSubject());
-            messageHelper.setText(notificationEmail.getBody());
+            messageHelper.setText(mailContentBuilder.build(notificationEmail.getBody()));
         };
         try {
             mailSender.send(messagePreparator);
