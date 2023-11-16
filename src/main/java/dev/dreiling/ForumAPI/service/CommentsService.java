@@ -19,7 +19,7 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class CommentService {
+public class CommentsService {
     private static final String POST_URL = "";
     private final PostRepository postRepository;
     private final UserRepository userRepository;
