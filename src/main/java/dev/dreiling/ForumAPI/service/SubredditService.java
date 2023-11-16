@@ -1,6 +1,8 @@
 package dev.dreiling.ForumAPI.service;
 
 import dev.dreiling.ForumAPI.dto.SubredditRequest;
+import dev.dreiling.ForumAPI.exceptions.ForumException;
+import dev.dreiling.ForumAPI.mapper.SubredditMapper;
 import dev.dreiling.ForumAPI.model.Subreddit;
 import dev.dreiling.ForumAPI.repository.SubredditRepository;
 import lombok.AllArgsConstructor;
@@ -18,35 +20,30 @@ import static java.util.stream.Collectors.toList;
 public class SubredditService {
 
     private final SubredditRepository subredditRepository;
+    private final SubredditMapper subredditMapper;
 
     @Transactional
     public SubredditRequest save(SubredditRequest subredditRequest) {
 
-        Subreddit subreddit = subredditRepository.save(mapSubredditRequest(subredditRequest));
+        Subreddit subreddit = subredditRepository.save(subredditMapper.mapRequestToSubreddit(subredditRequest));
         subredditRequest.setId(subreddit.getId());
         return subredditRequest;
-
-    }
-
-    private Subreddit mapSubredditRequest(SubredditRequest subredditRequest) {
-
-        return Subreddit.builder().name(subredditRequest.getName()).description(subredditRequest.getDescription()).build();
 
     }
 
     @Transactional(readOnly = true)
     public List<SubredditRequest> getAll() {
 
-        return subredditRepository.findAll().stream().map(this::mapToRequest).collect(toList());
+        return subredditRepository.findAll().stream().map(subredditMapper::mapSubredditToRequest).collect(toList());
 
     }
 
-    private SubredditRequest mapToRequest(Subreddit subreddit) {
+    public SubredditRequest getSubreddit(Long id) {
 
-        return SubredditRequest.builder().name(subreddit.getName()).id(subreddit.getId()).numberOfPosts(subreddit.getPosts().size()).build();
+        Subreddit subreddit = subredditRepository.findById(id)
+                .orElseThrow(() -> new ForumException("No Subreddit found with ID: " + id));
+        return subredditMapper.mapSubredditToRequest(subreddit);
 
     }
-
-
 
 }
