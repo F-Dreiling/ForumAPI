@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/subreddit")
+@CrossOrigin(origins = "*")
 @AllArgsConstructor
 @Slf4j
 public class SubredditController {

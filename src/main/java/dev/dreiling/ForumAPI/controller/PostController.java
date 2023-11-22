@@ -14,6 +14,7 @@ import static org.springframework.http.ResponseEntity.status;
 
 @RestController
 @RequestMapping("/api/posts")
+@CrossOrigin(origins = "*")
 @AllArgsConstructor
 public class PostController {
 
