@@ -13,8 +13,8 @@ import java.util.List;
 import static org.springframework.http.ResponseEntity.status;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/posts")
-@CrossOrigin(origins = "*")
 @AllArgsConstructor
 public class PostController {
 
